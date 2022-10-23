@@ -12,7 +12,7 @@ import { OptionsWithUri } from 'request';
 
 export class ToolzzSpecialities implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Toolzz Search',
+		displayName: 'Toolzz Specialities',
 		name: 'ToolzzSpecialities',
 		icon: 'file:toolzzShowCourse.svg',
 		group: ['transform'],

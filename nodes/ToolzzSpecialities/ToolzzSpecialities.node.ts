@@ -48,7 +48,8 @@ export class ToolzzSpecialities implements INodeType {
 				displayName: 'SubGrupos',
 				name: 'subgroups',
 				type: 'string' as NodePropertyTypes,
-				default: 'Digite os ids dos subgroupos separados por virgula',
+				default: '',
+				description: 'Digite os IDs dos subgroupos separados por virgula',
 			},
 		],
 	};

@@ -12,7 +12,7 @@ import { OptionsWithUri } from 'request';
 
 export class ToolzzItemPainelPerformaceUser implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Toolzz Painel User',
+		displayName: 'Toolzz Painel Performace User',
 		name: 'ToolzzItemPainelPerformaceUser',
 		icon: 'file:toolzzPainelUser.svg',
 		group: ['transform'],

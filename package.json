@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-toolzz",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Custom n8n node module for Toolzz",
 	"keywords": [
 		"n8n-community-node-package",
@@ -59,6 +59,7 @@
 			"dist/nodes/ToolzzShowUserInfo/ToolzzShowUserInfo.node.js",
 			"dist/nodes/ToolzzDificulties/ToolzzDificulties.node.js",
 			"dist/nodes/ToolzzFormats/ToolzzFormats.node.js",
+			"dist/nodes/ToolzzGroups/ToolzzGroups.node.js",
 			"dist/nodes/ToolzzSearch/ToolzzSearch.node.js",
 			"dist/nodes/ToolzzSpecialities/ToolzzSpecialities.node.js",
 			"dist/nodes/ToolzzSubGroups/ToolzzSubGroups.node.js",

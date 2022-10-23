@@ -37,18 +37,10 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 				options: [
 					{
 						name: 'Prod',
-						value: 'https://kong.api.toolzz.com.br',
-					},
-					{
-						name: 'Homol',
-						value: 'http://homol.playapp.edulabzz.com.br:8000',
-					},
-					{
-						name: 'Release',
-						value: 'http://release.edulabzz.com.br:8000',
+						value: 'https://gateway.api.toolzz.com.br',
 					},
 				],
-				default: 'https://kong.api.toolzz.com.br', // The initially selected option
+				default: 'https://gateway.api.toolzz.com.br', // The initially selected option
 				description: 'Selecione o ambiente',
 			},
 			{
@@ -61,8 +53,8 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 						value: 'email',
 					},
 					{
-						name: 'User ID',
-						value: 'id',
+						name: 'Cpf',
+						value: 'cpf',
 					},
 				],
 				default: 'email', // The initially selected option
@@ -91,7 +83,7 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 				Authorization: `Bearer ${accessToken}`,
 				'Content-Type': 'application/json',
 			},
-			uri: `${uri}/playappapi/user?by=${typeParam}&value=${valueParam}`,
+			uri: `${uri}/admin/users/getUserInformation?by=${typeParam}&value=${valueParam}`,
 			json: true,
 		};
 

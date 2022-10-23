@@ -12,7 +12,7 @@ import { OptionsWithUri } from 'request';
 
 export class ToolzzShowCourseWithSunToken2 implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Toolzz Show Course with sunToken',
+		displayName: 'Toolzz Show Course with sunToken v2',
 		name: 'ToolzzShowCourseWithSunToken2',
 		icon: 'file:toolzzShowCourse.svg',
 		group: ['transform'],

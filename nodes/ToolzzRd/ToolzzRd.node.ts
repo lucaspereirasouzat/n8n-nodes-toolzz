@@ -58,7 +58,7 @@ export class ToolzzRd implements INodeType {
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		let responseData;
 		const url = this.getNodeParameter('url', 0) as string;
-		const access_token = this.getNodeParameter('access_token', 0) as string;
+		const accessToken = this.getNodeParameter('access_token', 0) as string;
 		const method = this.getNodeParameter('method', 0) as string;
 
 		const body = this.getNodeParameter('body', 0) as string;
@@ -66,7 +66,7 @@ export class ToolzzRd implements INodeType {
 		const options: OptionsWithUri = {
 			method,
 			headers: {
-				Authorization: `Bearer ${access_token}`,
+				Authorization: `Bearer ${accessToken}`,
 				'Content-Type': 'application/json',
 			},
 			body,

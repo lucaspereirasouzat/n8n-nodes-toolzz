@@ -63,7 +63,8 @@
 			"dist/nodes/ToolzzSearch/ToolzzSearch.node.js",
 			"dist/nodes/ToolzzSpecialities/ToolzzSpecialities.node.js",
 			"dist/nodes/ToolzzSubGroups/ToolzzSubGroups.node.js",
-			"dist/nodes/ToolzzTags/ToolzzTags.node.js"
+			"dist/nodes/ToolzzTags/ToolzzTags.node.js",
+			"dist/nodes/ToolzzRd/ToolzzRd.node.js"
 		]
 	},
 	"devDependencies": {

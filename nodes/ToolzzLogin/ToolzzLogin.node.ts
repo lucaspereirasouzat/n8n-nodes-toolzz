@@ -38,6 +38,12 @@ export class ToolzzLogin implements INodeType {
 				default: '',
 			},
 			{
+				displayName: 'Código Instituicao',
+				name: 'institution_code',
+				type: 'string' as NodePropertyTypes,
+				default: '',
+			},
+			{
 				displayName: 'Ambiente',
 				name: 'url',
 				type: 'options',
@@ -67,10 +73,13 @@ export class ToolzzLogin implements INodeType {
 		const email = this.getNodeParameter('email', 0) as string;
 		const password = this.getNodeParameter('password', 0) as string;
 		const uri = this.getNodeParameter('url', 0) as string;
+		const institutionCode = this.getNodeParameter('institution_code', 0) as string;
 
 		const data: IDataObject = {
 			email,
 			password,
+			institution_code: institutionCode,
+			go_kursos: false,
 		};
 
 		const options: OptionsWithUri = {

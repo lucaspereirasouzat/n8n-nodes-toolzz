@@ -45,7 +45,7 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 			},
 			{
 				displayName: 'Filtrar por',
-				name: 'typeParam',
+				name: 'filterBy',
 				type: 'options',
 				options: [
 					{
@@ -62,7 +62,7 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 			},
 			{
 				displayName: 'Valor Para Fitrar',
-				name: 'value_param',
+				name: 'valueFilter',
 				type: 'string' as NodePropertyTypes,
 				default: '',
 			},
@@ -74,8 +74,8 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 		const accessToken = this.getNodeParameter('accessToken', 0) as string;
 
 		const uri = this.getNodeParameter('url', 0) as string;
-		const typeParam = this.getNodeParameter('type_param', 0) as string;
-		const valueParam = this.getNodeParameter('value_param', 0) as string;
+		const filterBy = this.getNodeParameter('filterBy', 0) as string;
+		const valueFilter = this.getNodeParameter('valueFilter', 0) as string;
 
 		const options: OptionsWithUri = {
 			method: 'GET',
@@ -83,7 +83,7 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 				Authorization: `Bearer ${accessToken}`,
 				'Content-Type': 'application/json',
 			},
-			uri: `${uri}/admin/users/getUserInformation?by=${typeParam}&value=${valueParam}`,
+			uri: `${uri}/admin/users/getUserInformation?by=${filterBy}&value=${valueFilter}`,
 			json: true,
 		};
 

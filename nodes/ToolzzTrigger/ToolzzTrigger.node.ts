@@ -52,8 +52,7 @@ export class ToolzzTrigger implements INodeType {
 				name: 'triggerOn',
 				type: 'options',
 				description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
-				options:
-				[
+				options: [
 					{
 						name: 'Atividade Respondida',
 						value:"activities.answered.activity",
@@ -107,32 +106,32 @@ export class ToolzzTrigger implements INodeType {
 
 		// @ts-ignore (because of request)
 	webhookMethods = {
-		loadOptions: {
-			async getFunctions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-				const returnData: INodePropertyOptions[] = [];
+// 		loadOptions: {
+// 			async getFunctions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+// 				const returnData: INodePropertyOptions[] = [];
 
-				let data;
-				try {
-					const options = {
-						method: 'GET',
-						uri: `https://gateway.api.toolzz.com.br/admin/webhook/getActions`,
-						json: true,
-					};
-data = await this.helpers.request!(options);
-				} catch (err) {
-					// eslint-disable-next-line n8n-nodes-base/node-execute-block-wrong-error-thrown
-					throw new Error(`AWS Error: ${err}`);
-				}
+// 				let data;
+// 				try {
+// 					const options = {
+// 						method: 'GET',
+// 						uri: `https://gateway.api.toolzz.com.br/admin/webhook/getActions`,
+// 						json: true,
+// 					};
+// data = await this.helpers.request!(options);
+// 				} catch (err) {
+// 					// eslint-disable-next-line n8n-nodes-base/node-execute-block-wrong-error-thrown
+// 					throw new Error(`AWS Error: ${err}`);
+// 				}
 
-				for (const func of data.data!) {
-					returnData.push({
-						name: func.name as string,
-						value: func.slug as string,
-					});
-				}
-				return returnData;
-			},
-		},
+// 				for (const func of data.data!) {
+// 					returnData.push({
+// 						name: func.name as string,
+// 						value: func.slug as string,
+// 					});
+// 				}
+// 				return returnData;
+// 			},
+// 		},
 		default: {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
 				let responseData;

@@ -45,7 +45,7 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 			},
 			{
 				displayName: 'Filtrar por',
-				name: 'url',
+				name: 'typeParam',
 				type: 'options',
 				options: [
 					{

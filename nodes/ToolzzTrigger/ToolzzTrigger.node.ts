@@ -20,9 +20,9 @@ export class ToolzzTrigger implements INodeType {
 		icon: 'file:toolzzShowCourse.svg',
 		group: ['transform'],
 		version: 1,
-		description: 'ToolzzTags',
+		description: 'ToolzzTrigger',
 		defaults: {
-			name: 'ToolzzTags',
+			name: 'ToolzzTrigger',
 		},
 		inputs: [],
 		outputs: ['main'],
@@ -98,7 +98,12 @@ export class ToolzzTrigger implements INodeType {
 		],
 	};
 
-	methods = {
+	// methods = {
+
+	// };
+
+		// @ts-ignore (because of request)
+	webhookMethods = {
 		loadOptions: {
 			async getFunctions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const returnData: INodePropertyOptions[] = [];
@@ -125,10 +130,6 @@ data = await this.helpers.request!(options);
 				return returnData;
 			},
 		},
-	};
-
-		// @ts-ignore (because of request)
-	webhookMethods = {
 		default: {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
 				let responseData;

@@ -54,16 +54,46 @@ export class ToolzzTrigger implements INodeType {
 				description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
 				options:
 				[
-					{name: 'Atividade Respondida',value:"activities.answered.activity","description":""},
-					{name: 'Certificado Emitido',value:"activities.certificate.issued","description":""},
-					{name: 'Conteúdo Concluído',value:"activities.content.completed","description":""},
-					{	name: 'Curso Concluído',value:"activities.course.completed","description":""},
-						{name: 'Edição De Dados De Usuário',value:"members.updated","description":""},
-						{name: 'Inativação De Usuário',value:"members.disabled","description":""},
-						{name: 'Nova Matrícula',value:"course.enrollment.created","description":""},
-						{name: 'Novo Cadastro',value:"members.created","description":""},
-						{name: 'Resgate Do Produto',value:"shop.product.redemption","description":""},
-						{name: 'Trilha Concluída',value:"activities.trail.completed","description":""}
+					{
+						name: 'Atividade Respondida',
+						value:"activities.answered.activity",
+					},
+					{
+						name: 'Certificado Emitido',
+						value:"activities.certificate.issued",
+					},
+					{
+						name: 'Conteúdo Concluído',
+						value:"activities.content.completed",
+					},
+					{
+						name: 'Curso Concluído',
+						value:"activities.course.completed",
+					},
+						{
+							name: 'Edição De Dados De Usuário',
+							value:"members.updated",
+						},
+						{
+							name: 'Inativação De Usuário',
+							value:"members.disabled",
+						},
+						{
+							name: 'Nova Matrícula',
+							value:"course.enrollment.created",
+						},
+						{
+							name: 'Novo Cadastro',
+							value:"members.created",
+						},
+						{
+							name: 'Resgate Do Produto',
+							value:"shop.product.redemption",
+						},
+						{
+							name: 'Trilha Concluída',
+							value:"activities.trail.completed",
+						},
 				],
 				default: "members.created",
 				required: true,

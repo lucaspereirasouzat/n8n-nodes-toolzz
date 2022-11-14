@@ -52,47 +52,20 @@ export class ToolzzTrigger implements INodeType {
 				name: 'triggerOn',
 				type: 'options',
 				description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
-				typeOptions: {
-					loadOptionsMethod: 'getFunctions',
-				},
-				displayOptions: {
-					show: {
-						operation: [
-							'invoke',
-						],
-					},
-				},
-				default: 'fileComment',
-				options: [
-					{
-						name: 'File Commented',
-						value: 'fileComment',
-						description: 'Triggers when someone comments on a file',
-					},
-					{
-						name: 'File Deleted',
-						value: 'fileDelete',
-						description:
-							'Triggers whenever a file has been deleted. Does not trigger on all files within a folder, if the folder is deleted.',
-					},
-					{
-						name: 'File Updated',
-						value: 'fileUpdate',
-						description:
-							'Triggers whenever a file saves or is deleted. This occurs whenever a file is closed or within 30 seconds after changes have been made.',
-					},
-					{
-						name: 'File Version Updated',
-						value: 'fileVersionUpdate',
-						description:
-							'Triggers whenever a named version is created in the version history of a file',
-					},
-					{
-						name: 'Library Publish',
-						value: 'libraryPublish',
-						description: 'Triggers whenever a library file is published',
-					},
+				options:
+				[
+					{name: 'Atividade Respondida',value:"activities.answered.activity","description":""},
+					{name: 'Certificado Emitido',value:"activities.certificate.issued","description":""},
+					{name: 'Conteúdo Concluído',value:"activities.content.completed","description":""},
+					{	name: 'Curso Concluído',value:"activities.course.completed","description":""},
+						{name: 'Edição De Dados De Usuário',value:"members.updated","description":""},
+						{name: 'Inativação De Usuário',value:"members.disabled","description":""},
+						{name: 'Nova Matrícula',value:"course.enrollment.created","description":""},
+						{name: 'Novo Cadastro',value:"members.created","description":""},
+						{name: 'Resgate Do Produto',value:"shop.product.redemption","description":""},
+						{name: 'Trilha Concluída',value:"activities.trail.completed","description":""}
 				],
+				default: "members.created",
 				required: true,
 			},
 		],

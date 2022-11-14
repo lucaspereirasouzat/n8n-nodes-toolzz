@@ -173,7 +173,6 @@ export class ToolzzTrigger implements INodeType {
 				const accessToken = this.getNodeParameter('accessToken') as string;
 				const triggerOn = this.getNodeParameter('triggerOn') as string;
 				const uri = this.getNodeParameter('uri', 0) as string;
-
 				const data = {
 					webhook_url: webhookUrl,
 					"status": "enabled",
@@ -182,6 +181,7 @@ export class ToolzzTrigger implements INodeType {
 					],
 				};
 
+				console.log('trigger',data)
 				const options = {
 					method: 'POST',
 					headers: {
@@ -254,8 +254,11 @@ export class ToolzzTrigger implements INodeType {
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
 		const bodyData = this.getBodyData();
 
+		console.log(bodyData)
+
 		if (bodyData.event_type === 'PING') {
 			const res = this.getResponseObject();
+			console.log(res)
 			res.status(200).end();
 			return {
 				noWebhookResponse: true,

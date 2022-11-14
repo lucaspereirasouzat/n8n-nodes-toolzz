@@ -58,7 +58,7 @@ export class ToolzzGetUserInfoByEmailOrUserId implements INodeType {
 					},
 				],
 				default: 'email', // The initially selected option
-				description: 'Selecione o ambiente',
+				description: 'Selecione o filtro',
 			},
 			{
 				displayName: 'Valor Para Fitrar',

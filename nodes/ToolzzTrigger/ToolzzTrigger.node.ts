@@ -181,7 +181,7 @@ export class ToolzzTrigger implements INodeType {
 					],
 				};
 
-				console.log('trigger',data)
+				console.log('trigger',data);
 				const options = {
 					method: 'POST',
 					headers: {
@@ -254,7 +254,7 @@ export class ToolzzTrigger implements INodeType {
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
 		const bodyData = this.getBodyData();
 
-		console.log(bodyData)
+		console.log(bodyData);
 
 		if (bodyData.event_type === 'PING') {
 			const res = this.getResponseObject();

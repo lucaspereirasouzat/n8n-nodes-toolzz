@@ -101,11 +101,6 @@ export class ToolzzTrigger implements INodeType {
 	};
 
 	// methods = {
-
-	// };
-
-		// @ts-ignore (because of request)
-	webhookMethods = {
 // 		loadOptions: {
 // 			async getFunctions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 // 				const returnData: INodePropertyOptions[] = [];
@@ -132,6 +127,11 @@ export class ToolzzTrigger implements INodeType {
 // 				return returnData;
 // 			},
 // 		},
+	// };
+
+		// @ts-ignore (because of request)
+	webhookMethods = {
+
 		default: {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
 				let responseData;

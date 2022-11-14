@@ -258,7 +258,7 @@ export class ToolzzTrigger implements INodeType {
 
 		if (bodyData.event_type === 'PING') {
 			const res = this.getResponseObject();
-			console.log(res)
+			console.log(res);
 			res.status(200).end();
 			return {
 				noWebhookResponse: true,

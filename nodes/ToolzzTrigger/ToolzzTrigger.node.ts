@@ -94,7 +94,7 @@ export class ToolzzTrigger implements INodeType {
 					},
 				],
 				required: true,
-			}
+			},
 		],
 	};
 
@@ -105,13 +105,12 @@ export class ToolzzTrigger implements INodeType {
 
 				let data;
 				try {
-							const options = {
-					method: 'GET',
-
-					uri: `https://gateway.api.toolzz.com.br/admin/webhook/getActions`,
-					json: true,
-				};
-				  data = await this.helpers.request!(options);
+					const options = {
+						method: 'GET',
+						uri: `https://gateway.api.toolzz.com.br/admin/webhook/getActions`,
+						json: true,
+					};
+data = await this.helpers.request!(options);
 				} catch (err) {
 					// eslint-disable-next-line n8n-nodes-base/node-execute-block-wrong-error-thrown
 					throw new Error(`AWS Error: ${err}`);
@@ -124,11 +123,9 @@ export class ToolzzTrigger implements INodeType {
 					});
 				}
 				return returnData;
-			}
+			},
 		},
 	};
-
-
 
 		// @ts-ignore (because of request)
 	webhookMethods = {
@@ -152,7 +149,7 @@ export class ToolzzTrigger implements INodeType {
 				};
 
 				responseData = await this.helpers.request(options);
-				const webhooks = responseData.data.data
+				const webhooks = responseData.data.data;
 
 				for (const webhook of webhooks) {
 					if (
@@ -178,9 +175,9 @@ export class ToolzzTrigger implements INodeType {
 					webhook_url: webhookUrl,
 					"status": "enabled",
 					events: [
-						triggerOn
-					]
-				}
+						triggerOn,
+					],
+				};
 
 				const options = {
 					method: 'POST',
@@ -190,7 +187,7 @@ export class ToolzzTrigger implements INodeType {
 					},
 					uri: `${uri}/webhook`,
 					json: true,
-					data
+					data,
 				};
 
 				responseData = await this.helpers.request(options);
@@ -210,7 +207,7 @@ export class ToolzzTrigger implements INodeType {
 				if (webhookData.webhookId !== undefined) {
 								const data = {
 					"status": "disabled",
-				}
+				};
 					try {
 								const options = {
 					method: 'POST',
@@ -220,7 +217,7 @@ export class ToolzzTrigger implements INodeType {
 					},
 					uri: `${uri}/webhook`,
 					json: true,
-					data
+					data,
 				};
 						await this.helpers.request(options);
 					} catch (error) {
@@ -263,7 +260,7 @@ export class ToolzzTrigger implements INodeType {
 		}
 
 		return {
-			workflowData: [this.helpers.returnJsonArray(bodyData)]
+			workflowData: [this.helpers.returnJsonArray(bodyData)],
 		};
 	}
 }

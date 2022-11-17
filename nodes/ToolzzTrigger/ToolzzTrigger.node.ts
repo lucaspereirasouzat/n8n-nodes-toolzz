@@ -11,8 +11,6 @@ import {
 	NodePropertyTypes,
 } from 'n8n-workflow';
 
-import { OptionsWithUri } from 'request';
-
 export class ToolzzTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Toolzz Trigger',
@@ -50,7 +48,7 @@ export class ToolzzTrigger implements INodeType {
 			{
 				displayName: 'Trigger On Name or ID',
 				name: 'triggerOn',
-				type: 'options',
+				type: 'multiOptions',
 				description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>',
 				options: [
 					{
@@ -94,7 +92,7 @@ export class ToolzzTrigger implements INodeType {
 							value:"activities.trail.completed",
 						},
 				],
-				default: "members.created",
+				default: ["members.created"],
 				required: true,
 			},
 		],
@@ -138,7 +136,7 @@ export class ToolzzTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 				const webhookUrl = this.getNodeWebhookUrl('default');
 				const accessToken = this.getNodeParameter('accessToken') as string;
-				const triggerOn = this.getNodeParameter('triggerOn') as string;
+				const events = this.getNodeParameter('events') as string[];
 				const uri = this.getNodeParameter('uri', 0) as string;
 
 				const options = {
@@ -157,7 +155,7 @@ export class ToolzzTrigger implements INodeType {
 				for (const webhook of webhooks) {
 					if (
 						webhook.webhook_url === webhookUrl &&
-						webhook.webhook_institutions_event_actions.some((item: { webhook_events_actions: { slug: string; }; }) => item.webhook_events_actions.slug === triggerOn) &&
+						webhook.webhook_institutions_event_actions.some((item: { webhook_events_actions: { slug: string; }; }) => events.includes(item.webhook_events_actions.slug)) &&
 						webhook.status === 'enabled'
 					) {
 						webhookData.webhookId = webhook.id as string;
@@ -171,14 +169,12 @@ export class ToolzzTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 				const webhookUrl = this.getNodeWebhookUrl('default');
 				const accessToken = this.getNodeParameter('accessToken') as string;
-				const triggerOn = this.getNodeParameter('triggerOn') as string;
+				const events = this.getNodeParameter('events') as string[];
 				const uri = this.getNodeParameter('uri', 0) as string;
 				const data = {
 					webhook_url: webhookUrl,
 					"status": "enabled",
-					events: [
-						triggerOn,
-					],
+					events,
 				};
 
 				console.log('trigger',data);
@@ -235,35 +231,8 @@ export class ToolzzTrigger implements INodeType {
 		},
 	};
 
-	// async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
-	// 	const bodyData = this.getBodyData();
-
-	// 	if (bodyData.event_type === 'PING') {
-	// 		const res = this.getResponseObject();
-	// 		res.status(200).end();
-	// 		return {
-	// 			noWebhookResponse: true,
-	// 		};
-	// 	}
-
-	// 	return {
-	// 		workflowData: [this.helpers.returnJsonArray(bodyData)],
-	// 	};
-	// }
-
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
 		const bodyData = this.getBodyData();
-
-		console.log(bodyData);
-
-		if (bodyData.event_type === 'PING') {
-			const res = this.getResponseObject();
-			console.log(res);
-			res.status(200).end();
-			return {
-				noWebhookResponse: true,
-			};
-		}
 
 		return {
 			workflowData: [this.helpers.returnJsonArray(bodyData)],

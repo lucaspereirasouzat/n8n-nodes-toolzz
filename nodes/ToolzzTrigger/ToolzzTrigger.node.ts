@@ -114,7 +114,7 @@ export class ToolzzTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 				const webhookUrl = this.getNodeWebhookUrl('default');
 				const accessToken = this.getNodeParameter('accessToken') as string;
-				const events = this.getNodeParameter('events') as string[];
+				const events = this.getNodeParameter('triggerOn') as string[];
 				const uri = this.getNodeParameter('uri', 0) as string;
 
 				const options = {
@@ -147,7 +147,7 @@ export class ToolzzTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 				const webhookUrl = this.getNodeWebhookUrl('default');
 				const accessToken = this.getNodeParameter('accessToken') as string;
-				const events = this.getNodeParameter('events') as string[];
+				const events = this.getNodeParameter('triggerOn') as string[];
 				const uri = this.getNodeParameter('uri', 0) as string;
 				const data = {
 					webhook_url: webhookUrl,

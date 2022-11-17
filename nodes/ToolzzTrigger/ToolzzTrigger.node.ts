@@ -16,7 +16,7 @@ export class ToolzzTrigger implements INodeType {
 		displayName: 'Toolzz Trigger',
 		name: 'ToolzzTrigger',
 		icon: 'file:toolzzShowCourse.svg',
-		group: ['transform'],
+		group: ['trigger'],
 		version: 1,
 		description: 'ToolzzTrigger',
 		defaults: {
@@ -25,6 +25,14 @@ export class ToolzzTrigger implements INodeType {
 		inputs: [],
 		outputs: ['main'],
 		credentials: [],
+		webhooks: [
+			{
+				name: 'default',
+				httpMethod: 'POST',
+				responseMode: 'onReceived',
+				path: 'webhooks',
+			},
+		],
 		properties: [
 				{
 				displayName: 'AccessToken',
@@ -98,38 +106,8 @@ export class ToolzzTrigger implements INodeType {
 		],
 	};
 
-	// methods = {
-// 		loadOptions: {
-// 			async getFunctions(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
-// 				const returnData: INodePropertyOptions[] = [];
-
-// 				let data;
-// 				try {
-// 					const options = {
-// 						method: 'GET',
-// 						uri: `https://gateway.api.toolzz.com.br/admin/webhook/getActions`,
-// 						json: true,
-// 					};
-// data = await this.helpers.request!(options);
-// 				} catch (err) {
-// 					// eslint-disable-next-line n8n-nodes-base/node-execute-block-wrong-error-thrown
-// 					throw new Error(`AWS Error: ${err}`);
-// 				}
-
-// 				for (const func of data.data!) {
-// 					returnData.push({
-// 						name: func.name as string,
-// 						value: func.slug as string,
-// 					});
-// 				}
-// 				return returnData;
-// 			},
-// 		},
-	// };
-
-		// @ts-ignore (because of request)
+	// @ts-ignore (because of request)
 	webhookMethods = {
-
 		default: {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
 				let responseData;

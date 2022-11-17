@@ -164,7 +164,7 @@ export class ToolzzTrigger implements INodeType {
 					},
 					uri: `${uri}/webhook`,
 					json: true,
-					data,
+					body: data,
 				};
 
 				responseData = await this.helpers.request(options);
@@ -194,7 +194,7 @@ export class ToolzzTrigger implements INodeType {
 					},
 					uri: `${uri}/webhook`,
 					json: true,
-					data,
+					body: data,
 				};
 						await this.helpers.request(options);
 					} catch (error) {

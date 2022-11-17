@@ -49,6 +49,10 @@ export class ToolzzTrigger implements INodeType {
 						name: 'Prod',
 						value: 'https://gateway.api.toolzz.com.br/admin',
 					},
+					{
+						name: 'Development',
+						value: 'http://localhost:3006',
+					},
 				],
 				default: 'https://gateway.api.toolzz.com.br/admin', // The initially selected option
 				description: 'Selecione o ambiente',

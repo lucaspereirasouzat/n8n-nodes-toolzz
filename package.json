@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-toolzz",
-	"version": "0.1.22",
+	"version": "0.1.24",
 	"description": "Custom n8n node module for Toolzz",
 	"keywords": [
 		"n8n-community-node-package",

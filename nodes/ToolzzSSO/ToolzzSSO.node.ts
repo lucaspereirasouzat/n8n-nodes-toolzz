@@ -66,11 +66,11 @@ export class ToolzzSSO implements INodeType {
 		const uri = this.getNodeParameter('uri', 0) as string;
 
 		const email = this.getNodeParameter('email', 0) as string;
-		const institution_code = this.getNodeParameter('institution_code', 0) as string;
+		const institutionCode = this.getNodeParameter('institution_code', 0) as string;
 
 		const data = {
 			email,
-			institution_code,
+			institution_code:institutionCode,
 		};
 
 

@@ -135,6 +135,7 @@ export class ToolzzTrigger implements INodeType {
 				const webhooks = responseData.data.data;
 
 				for (const webhook of webhooks) {
+					console.log(webhook, events)
 					if (
 						webhook.webhook_url === webhookUrl &&
 						webhook.webhook_institutions_event_actions.some((item: { webhook_events_actions: { slug: string; }; }) => events.includes(item.webhook_events_actions.slug)) &&

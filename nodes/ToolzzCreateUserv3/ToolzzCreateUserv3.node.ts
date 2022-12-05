@@ -93,7 +93,7 @@ export class ToolzzCreateUserv3 implements INodeType {
 		const data: IDataObject = {
 			name,
 			email,
-			escola_id: schools.split(','),
+			schools: schools.split(','),
 		};
 
 		const options: OptionsWithUri = {

@@ -66,7 +66,7 @@ export class ToolzzCreateUserv3 implements INodeType {
 			},
 			{
 				displayName: 'Escola ID',
-				name: 'escola_id',
+				name: 'schools',
 				description: 'Para mais de uma escola utilize ,',
 				type: 'string' as NodePropertyTypes,
 				default: '',

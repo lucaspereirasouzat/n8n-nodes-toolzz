@@ -10,16 +10,16 @@ import {
 
 import { OptionsWithUri } from 'request';
 
-export class ToolzzCreateUserv2 implements INodeType {
+export class ToolzzCreateUserv3 implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Toolzz Create User',
-		name: 'ToolzzCreateUserv2',
+		displayName: 'Toolzz Create User v3',
+		name: 'ToolzzCreateUserv3',
 		icon: 'file:toolzzCreateUser.svg',
 		group: ['transform'],
 		version: 2,
 		description: 'Create User Toolzz API',
 		defaults: {
-			name: 'ToolzzCreateUserv2',
+			name: 'ToolzzCreateUserv3',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
@@ -85,7 +85,6 @@ export class ToolzzCreateUserv2 implements INodeType {
 		const name = this.getNodeParameter('name', 0) as string;
 		const email = this.getNodeParameter('email', 0) as string;
 		const schools = this.getNodeParameter('schools', 0) as string;
-		const password = this.getNodeParameter('password', 0) as string;
 
 		const accessToken = this.getNodeParameter('accessToken', 0) as string;
 		const uri = this.getNodeParameter('url', 0) as string;
@@ -93,8 +92,7 @@ export class ToolzzCreateUserv2 implements INodeType {
 		const data: IDataObject = {
 			name,
 			email,
-			password,
-			escola_id: schools,
+			escola_id: schools.split(','),
 		};
 
 		const options: OptionsWithUri = {

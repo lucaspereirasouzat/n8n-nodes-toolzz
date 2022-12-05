@@ -17,7 +17,7 @@ export class ToolzzCreateUserv3 implements INodeType {
 		icon: 'file:toolzzCreateUser.svg',
 		group: ['transform'],
 		version: 2,
-		description: 'Create User Toolzz API',
+		description: 'Create User Toolzz API v3',
 		defaults: {
 			name: 'ToolzzCreateUserv3',
 		},
@@ -67,6 +67,7 @@ export class ToolzzCreateUserv3 implements INodeType {
 			{
 				displayName: 'Escola ID',
 				name: 'escola_id',
+				description: 'Para mais de uma escola utilize ,',
 				type: 'string' as NodePropertyTypes,
 				default: '',
 			},

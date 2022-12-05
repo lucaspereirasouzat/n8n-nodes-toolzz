@@ -16,7 +16,7 @@ export class ToolzzCreateUser implements INodeType {
 		name: 'toolzzCreateUser',
 		icon: 'file:toolzzCreateUser.svg',
 		group: ['transform'],
-		version: 1,
+		version: 2,
 		description: 'Create User Toolzz API',
 		defaults: {
 			name: 'ToolzzCreateUser',

@@ -67,7 +67,7 @@
 			"dist/nodes/ToolzzRd/ToolzzRd.node.js",
 			"dist/nodes/ToolzzTrigger/ToolzzTrigger.node.js",
 			"dist/nodes/ToolzzSSO/ToolzzSSO.node.js",
-			"dist/nodes/ToolzzSSO/ToolzzCreateUserv2.node.js"
+			"dist/nodes/ToolzzCreateUserv2/ToolzzCreateUserv2.node.js"
 		]
 	},
 	"devDependencies": {

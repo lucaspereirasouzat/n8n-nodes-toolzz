@@ -1,0 +1,16 @@
+{
+	"legacy": {
+		"prod": "https://kong.api.toolzz.com.br",
+		"homol": "http://homol.playapp.edulabzz.com.br:8000",
+		"release": "http://release.edulabzz.com.br:8000"
+	},
+	"core": {
+		"prod": "https://app.toolzz.com.br",
+		"homol": "https://app.toolzz.io",
+		"release": "http://release.edulabzz.com.br:8000"
+	},
+	"api": {
+		"prod": "https://gateway.api.toolzz.com.br",
+		"homol": "https://kong.api.toolzz.io"
+	}
+}

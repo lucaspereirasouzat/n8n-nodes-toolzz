@@ -1,7 +1,6 @@
 import { IExecuteFunctions } from 'n8n-core';
 
 import {
-	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
@@ -9,6 +8,7 @@ import {
 } from 'n8n-workflow';
 
 import { OptionsWithUri } from 'request';
+import { ToolzzEnvironments } from '../../config/toolzz-environments';
 
 export class ToolzzAttachStudents implements INodeType {
 	description: INodeTypeDescription = {
@@ -16,7 +16,7 @@ export class ToolzzAttachStudents implements INodeType {
 		name: 'toolzzAttachStudents',
 		icon: 'file:toolzzShowCourse.svg',
 		group: ['transform'],
-		version: 1,
+		version: [1, 2],
 		description: 'Attach Students Toolzz API',
 		defaults: {
 			name: 'ToolzzAttachStudents',
@@ -33,23 +33,50 @@ export class ToolzzAttachStudents implements INodeType {
 			},
 			{
 				displayName: 'Ambiente',
+				displayOptions: {
+					show: {
+						'@version': [1],
+					},
+				},
 				name: 'url',
 				type: 'options',
 				options: [
 					{
 						name: 'Prod',
-						value: 'https://kong.api.toolzz.com.br',
+						value: ToolzzEnvironments.legacy.prod,
 					},
 					{
 						name: 'Homol',
-						value: 'http://homol.playapp.edulabzz.com.br:8000',
+						value: ToolzzEnvironments.legacy.homol,
 					},
 					{
 						name: 'Release',
-						value: 'http://release.edulabzz.com.br:8000',
+						value: ToolzzEnvironments.legacy.release,
 					},
 				],
-				default: 'https://kong.api.toolzz.com.br', // The initially selected option
+				default: `${ToolzzEnvironments.legacy.prod}`, // The initially selected option
+				description: 'Selecione o ambiente',
+			},
+			{
+				displayName: 'Ambiente',
+				displayOptions: {
+					show: {
+						'@version': [2],
+					},
+				},
+				name: 'url',
+				type: 'options' as NodePropertyTypes,
+				default: `${ToolzzEnvironments.api.prod}`,
+				options: [
+					{
+						name: 'Prod',
+						value: ToolzzEnvironments.api.prod,
+					},
+					{
+						name: 'Homol',
+						value: ToolzzEnvironments.api.homol,
+					},
+				],
 				description: 'Selecione o ambiente',
 			},
 			{
